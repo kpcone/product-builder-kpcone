@@ -32,6 +32,28 @@
     body.light-mode header{
       background: linear-gradient(to bottom, rgba(255,255,255,.85), rgba(255,255,255,.55));
     }
+    body.light-mode .card, 
+    body.light-mode .input, 
+    body.light-mode select, 
+    body.light-mode .thumb {
+      background: var(--panel);
+      border-color: var(--border);
+    }
+    body.light-mode .btn, 
+    body.light-mode .stat, 
+    body.light-mode .item, 
+    body.light-mode .pill, 
+    body.light-mode .qty button,
+    body.light-mode .mini {
+      background: var(--panel2);
+      color: var(--text);
+    }
+    body.light-mode .thumb {
+      color: var(--text);
+    }
+    body.light-mode .input::placeholder {
+      color: var(--muted);
+    }
     a{ color:inherit; text-decoration:none; }
     .container{ max-width:var(--max); margin:0 auto; padding: 24px; }
     header{
@@ -372,6 +394,20 @@
       </aside>
     </div>
 
+    <section class="card" id="partnership" style="margin-top: 40px; padding: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+      <h2 style="margin-top: 0; text-align: center;">제휴 문의</h2>
+      <p style="text-align: center; color: var(--muted); margin-bottom: 24px;">PC STORE와 함께 성장할 파트너를 찾습니다.</p>
+      <form action="https://formspree.io/f/mqewzrwn" method="POST" class="form">
+        <div class="two">
+          <input type="text" name="name" class="input" placeholder="성함/업체명" required />
+          <input type="email" name="email" class="input" placeholder="이메일 주소" required />
+        </div>
+        <input type="text" name="subject" class="input" placeholder="문의 제목" required />
+        <textarea name="message" class="input" placeholder="상세 제휴 제안 내용" style="min-height: 120px; resize: vertical; font-family: inherit;" required></textarea>
+        <button class="btn primary" type="submit">제휴 제안 보내기</button>
+      </form>
+    </section>
+
     <footer>
       © <span id="year"></span> PC STORE Demo. HTML/CSS/JS 단일 파일 예시.
     </footer>
@@ -635,7 +671,7 @@
 
     // theme toggle
     const themeBtn = el("themeToggle");
-    const currentTheme = localStorage.getItem("pcstore_theme") || "dark";
+    const currentTheme = localStorage.getItem("pcstore_theme") || "light";
     
     if(currentTheme === "light"){
       document.body.classList.add("light-mode");
